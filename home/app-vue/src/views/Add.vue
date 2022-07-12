@@ -27,19 +27,22 @@ import axios from 'axios'
             const newItem = ref("")
             const newContent = ref("")
             const final = ref('')
-            const add = () => {
-                console.log(newContent.value)
-                axios({
+            const add = async () => {
+                try{
+                  const response = await axios({
                     method: 'post',
                     url: 'http://localhost:8000/api/todo/add',
                     data: {
-                        name: newItem.value,
-                        content: newContent.value
+                      name: newItem.value,
+                      content: newContent.value
                     }
-                }).then(res => {
-                    console.log(res.error)
-                    final.value = 'OK'
-                })
+                  })
+
+                  final.value = response.data
+                } catch (e) {
+                  final.value = e.response.data.message
+                }
+
             }
             return {
                 newItem,

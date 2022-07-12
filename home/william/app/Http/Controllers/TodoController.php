@@ -21,6 +21,16 @@ class TodoController extends Controller
         }
     }
 
+    public function get_one_by_name($name) {
+
+        $todo = TodoModel::where('name', $name)->first();
+        if ($todo) {
+            return response()->json($todo);
+        } else {
+            return response()->json(['error' => 'Todo not found'], 404);
+        }
+    }
+
     public function modif(Request $req) {
 
         $req->validate([
@@ -58,13 +68,10 @@ class TodoController extends Controller
     public function add_todo(Request $req) {
 
         $req->validate([
-            'name'=> 'string|required',
+            'name'=> 'string|required|unique:todo',
             'content'=> 'string|required'
         ]);
 
-        if ($this->is_exist($req->name) == true) {
-            return response()->json('error, is exist');
-        }
         $table = new TodoModel;
         $table->name = $req->name;
         $table->content = $req->content;

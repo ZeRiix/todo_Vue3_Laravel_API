@@ -41,10 +41,10 @@
                                       class="fas fa-key"></i></span>{{ Element }}</Button>
                       </li>
                   </ul>
-                  <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+                  <input type="search" class="form-control" placeholder="Search" aria-label="Search" v-model="name"/>
               </div>
               
-              <div class="text-white"><i class="fas fa-search ps-3"></i></div>
+             <button class="text-white"><i class="fas fa-search ps-3"></i></button>
           </form>
 
           <ul class="navbar-nav ms-3">
@@ -68,15 +68,29 @@
 
 import { useStore } from 'vuex'
 import {ref} from 'vue';
+import { useRouter } from "vue-router";
 
 export default {
   name: 'NavBar',
   setup() {
+    //const re = new RegExp('/[^0-9]/')
     const store = useStore()
-    console.log(store)
     const name = ref("")
+    const router = useRouter()
+    const search = () => {
+      if (Number.isInteger(parseInt(name.value)) === true) {
+        store.commit('todo/SET_ID_ELEMENT', name.value)
+        store.commit('todo/DROP_NAME_ELEMENT')
+        router.push("/element")
+      } else {
+        store.commit('todo/SET_NAME_ELEMENT', name.value)
+        store.commit('todo/DROP_ID_ELEMENT')
+        router.push("/element")
+      }
+    }
     return {
-      name
+      name,
+      search
     }
   }
   ,
@@ -139,6 +153,8 @@ export default {
   .text-white {
     margin-left: 0.5em;
     margin-right: 1.5em;
+    background-color: #212529;
+    border: none !important;
   }
 
   .navbar {

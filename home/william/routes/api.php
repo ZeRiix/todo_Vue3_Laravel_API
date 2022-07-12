@@ -20,3 +20,4 @@ Route::get('/todo/element/{id}', [TodoController::class, 'get_one_by_id']);
 Route::post('/todo/add', [TodoController::class, 'add_todo']);
 Route::post('/todo/update', [TodoController::class, 'modif']);
 Route::post('/todo/del', [TodoController::class, 'suppr']);
+Route::get('/todo/elementName/{name}', [TodoController::class, 'get_one_by_name']);

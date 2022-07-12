@@ -19,7 +19,7 @@ dom.watch();
 
 const app = createApp(App);
 app.use(router);
-app.use(store)
+app.use(store);
+app.use(BootstrapVue3);
 app.component(FontAwesomeIcon);
 app.mount('#app');
-app.use(BootstrapVue3);
