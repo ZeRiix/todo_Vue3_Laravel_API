@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  mariadb:
+    image: mariadb:10.6
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - MYSQL_DATABASE=bitnami_myapp
+      - MYSQL_USER=bn_myapp
+      - MYSQL_PASSWORD=root
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    ports:
+      - '3306:3306'
+    container_name: 'mariadb'
+  myapp:
+    image: docker.io/bitnami/laravel:9
+    ports:
+      - '8000:8000'
+    volumes:
+            - './home/william:/app'
+    depends_on:
+      - mariadb
+  web:
+    build: home/app-vue
+    volumes:
+      - './home/app-vue/:/app'
+    ports:
+      - "8080:8080"
+    command: npm run serve
