@@ -30,7 +30,7 @@ const routes = [
     component: Element,
   },
   {
-    path: "/modify",
+    path: "/modify/:name",
     name: "Modify",
     component: Modify,
   },

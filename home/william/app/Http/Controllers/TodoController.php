@@ -38,28 +38,19 @@ class TodoController extends Controller
             'content'=> 'string',
             'valid'=> 'boolean',
         ]);
+        $todo = TodoModel::where('name', $req->name)->first();
 
-        if ($req->name) {
-            if ($req->content) {
-               TodoModel::where('name', $req->name)->update(['content' => $req->content]);
-               response()->json(['success' => 'Todo content updated']);
-            } else {
-                return response()->json(['error' => 'Todo content error'], 400);
-            }
-            if ($req->valid) {
-                TodoModel::where('name', $req->name)->update(['valid' => $req->valid]);
-                response()->json(['success' => 'Todo valid updated']);
-            } else {
-                return response()->json(['error' => 'Todo valid error'], 400);
-            }
-            return response()->json(['success' => 'Todo updated']);
-        } else {
-            return response()->json(['error' => 'Todo not found'], 404);
-        }
+        $toUpdate = [
+            'content'=> ($req->content != $todo->content) ? $req->content : $todo->content,
+            'valid'=> ($req->valid != $todo->valid) ? $req->valid : $todo->valid,
+        ];
+       TodoModel::where('name', $req->name)->update($toUpdate);
+
+        return response()->json(['success' => 'Todo updated']);
     }
 
     public function suppr(Request $req) {
-        $req->validate(['name'=> 'string']);
+        $req->validate(['name'=> 'string|exists:todo,name']);
         TodoModel::where('name', $req->name)->delete();
 
         return response()->json('delete');
