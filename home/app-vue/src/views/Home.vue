@@ -4,8 +4,23 @@
 </template>
 
 <script>
+
+import {useStore} from "vuex";
+
 export default {
   name: 'HomePage',
+
+  setup() {
+
+    const store = useStore()
+
+    console.log(store.getters('user/getTokenUser'))
+
+    return {
+      store
+    }
+
+  }
 
 }
 </script>

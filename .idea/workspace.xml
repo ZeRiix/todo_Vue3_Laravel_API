@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dfacb8cd-26a2-4ed0-b3bf-ae516a7c4046" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/home/app-vue/src/store/user/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/app-vue/src/store/user/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/app-vue/src/store/user/mutation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/app-vue/src/store/user/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/app-vue/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/app-vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/home/app-vue/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/app-vue/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/home/app-vue/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/app-vue/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/home/app-vue/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/william/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/home/william/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/william/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/home/william/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/william/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/william/routes/api.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BtCDKL30rhjTsR7LU1x2e0JXRr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="JwtTestController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/home/william/app/Http/Controllers/JwtTestController.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.JwtTestController.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dfacb8cd-26a2-4ed0-b3bf-ae516a7c4046" name="Changes" comment="" />
+      <created>1657715905522</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657715905522</updated>
+      <workItem from="1657715919880" duration="17417000" />
+      <workItem from="1657869710936" duration="7678000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

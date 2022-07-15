@@ -5,7 +5,7 @@ import Element from "@/views/Element";
 import Modify from "@/views/Modify";
 import Remove from "@/views/Remove";
 import List from "@/views/List";
- 
+import Login from "@/views/Login";
 
 
 const routes = [
@@ -35,10 +35,20 @@ const routes = [
     component: Modify,
   },
   {
+    path: "/modify",
+    name: "Modify",
+    component: Modify,
+  },
+  {
     path: "/remove",
     name: "Remove",
     component: Remove,
-  }
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
 ];
 
 const router = createRouter({
