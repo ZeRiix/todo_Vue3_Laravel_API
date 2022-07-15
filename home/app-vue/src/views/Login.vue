@@ -43,18 +43,20 @@
             }
           })
 
-          result.value = response.data
-          console.log(response.data[0].token)
-          if (response.data[0]) {
-            const test = await store.commit('user/SET_TOKEN', response.data[0].token)
-            console.log(test)
-            router.push('/login')
-          }
+          result.value = response.data[0].token
+          console.log(result.value)
 
         } catch (e) {
-          result.value = e.response.data.message
-          console.log(e.response.data.message, "error")
+          result.value = e.response.data.response
+          console.log(result, "error")
         }
+
+        if (result.value) {
+          console.log('login success')
+          store.commit('user/SET_TOKEN', result.value)
+          await router.push('/home')
+        }
+
 
       }
       return {
