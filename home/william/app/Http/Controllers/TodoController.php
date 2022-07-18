@@ -4,79 +4,82 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TodoModel;
+use App\Services\TodoService;
 
 class TodoController extends Controller
 {
-    public function liste() {
-        return response()->json(TodoModel::all());
+    private TodoService $todoService;
+
+    public function __construct(TodoService $todoService)
+    {
+        $this->todoService = $todoService;
     }
 
-    public function get_one_by_id($id) {
+    public function listTodo(Request $request) {
 
-        $todo = TodoModel::find($id);
-        if ($todo) {
-            return response()->json($todo);
-        } else {
-            return response()->json(['error' => 'Todo not found'], 404);
-        }
+        $request->validate([
+            'token' => 'required',
+            'info.id' => 'integer',
+        ]);
+
+        return response()->json([$this->todoService->listeForUser($request['info']['id'])]);
     }
 
-    public function get_one_by_name($name) {
+    public function get_one_by_id(Request $request) {
 
-        $todo = TodoModel::where('name', $name)->first();
-        if ($todo) {
-            return response()->json($todo);
-        } else {
-            return response()->json(['error' => 'Todo not found'], 404);
-        }
+        $request->validate([
+            'id' => 'integer',
+            'token' => 'required',
+            'info.id' => 'integer',
+        ]);
+
+        return response()->json([$this->todoService->getElementByID($request)]);
     }
 
-    public function modif(Request $req) {
+    public function get_one_by_name(Request $request) {
 
-        $req->validate([
+        $request->validate([
+            'name' => 'string',
+            'token' => 'required',
+            'info.id' => 'integer',
+        ]);
+
+        return response()->json([$this->todoService->getElementByName($request)]);
+    }
+
+    public function modif(Request $request) {
+
+        $request->validate([
+            'token' => 'required',
             'name'=> 'string|required',
             'content'=> 'string',
             'valid'=> 'boolean',
+            'info.id' => 'integer',
         ]);
-        $todo = TodoModel::where('name', $req->name)->first();
 
-        $toUpdate = [
-            'content'=> ($req->content != $todo->content) ? $req->content : $todo->content,
-            'valid'=> ($req->valid != $todo->valid) ? $req->valid : $todo->valid,
-        ];
-       TodoModel::where('name', $req->name)->update($toUpdate);
-
-        return response()->json(['success' => 'Todo updated']);
+        return response()->json([$this->todoService->modifElement($request)]);
     }
 
-    public function suppr(Request $req) {
-        $req->validate(['name'=> 'string|exists:todo,name']);
-        TodoModel::where('name', $req->name)->delete();
+    public function suppr(Request $request) {
 
-        return response()->json('delete');
+        $request->validate([
+            'name' => 'string',
+            'token' => 'required',
+            'info.id' => 'integer',
+        ]);
+
+        return response()->json([$this->todoService->supprElement($request)]);
     }
 
-    public function add_todo(Request $req) {
+    public function add_todo(Request $request) {
 
-        $req->validate([
+        $request->validate([
+            'token' => 'required',
             'name'=> 'string|required|unique:todo',
-            'content'=> 'string|required'
+            'content'=> 'string|required',
+            'info.id' => 'integer',
         ]);
 
-        $table = new TodoModel;
-        $table->name = $req->name;
-        $table->content = $req->content;
-
-        $table->save();
-
-        return response()->json('add');
-    }
-
-    public function is_exist($var) {
-        $table = TodoModel::where('name', $var)->first();
-        if ($table == null) {
-            return false;
-        }
-        return true;
+        return response()->json([$this->todoService->addElement($request)]);
     }
 }

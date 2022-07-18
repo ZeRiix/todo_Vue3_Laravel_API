@@ -14,9 +14,10 @@ export default {
 
     const store = useStore()
 
-    const test = store.getters('user/getTokenUser')
+    const test = store.getters['user/getTokenUser']
 
     console.log(test)
+    console.log(store.getters)
 
     return {
       store
